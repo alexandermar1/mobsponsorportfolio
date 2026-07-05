@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOB Sponsor Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0A0A0A;
+    --white: #FFFFFF;
+    --off-white: #F8F7F4;
+    --mid-gray: #6B6B6B;
+    --light-gray: #E8E6E1;
+    --accent: #C8A96E;
+    --accent-dark: #A8864E;
+    --text-body: #2C2C2C;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--text-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10,10,10,0.97);
+    backdrop-filter: blur(8px);
+    padding: 0 5%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(200,169,110,0.2);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 60% 40%, rgba(200,169,110,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+    max-width: 700px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    max-width: 540px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 3rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 3.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3.5rem;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.4rem;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: all 0.25s;
+  }
+
+  .hero-cta:hover {
+    background: var(--accent);
+    color: var(--black);
+  }
+
+  /* PILLARS */
+  .pillars-section {
+    background: var(--off-white);
+    padding: 90px 5%;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1.2;
+  }
+
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px;
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1.5px solid var(--light-gray);
+  }
+
+  .pillar-card {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    text-align: center;
+  }
+
+  .pillar-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--light-gray);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 0.75rem;
+  }
+
+  .pillar-desc {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--mid-gray);
+  }
+
+  /* WHY PARTNER */
+  .why-section {
+    background: var(--black);
+    padding: 90px 5%;
+    text-align: center;
+  }
+
+  .why-section .section-title { color: var(--white); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2px;
+    max-width: 900px;
+    margin: 3rem auto 0;
+  }
+
+  .why-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(200,169,110,0.12);
+    padding: 2rem 1.5rem;
+  }
+
+  .why-card-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.4rem;
+  }
+
+  .why-card-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* YEAR SECTIONS */
+  .years-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--light-gray);
+    padding: 0 5%;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    position: sticky;
+    top: 60px;
+    z-index: 90;
+  }
+
+  .year-tab {
+    flex-shrink: 0;
+    padding: 1rem 1.4rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .year-tab:hover, .year-tab.active {
+    color: var(--black);
+    border-bottom-color: var(--accent);
+  }
+
+  /* SPONSOR SECTIONS */
+  .year-section {
+    padding: 70px 5%;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .year-section:nth-child(even) { background: var(--off-white); }
+
+  .year-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--light-gray);
+  }
+
+  .year-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 700;
+    color: var(--black);
+  }
+
+  .year-count {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(200,169,110,0.1);
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+  }
+
+  .semester-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .semester-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-bottom: 1.2rem;
+  }
+
+  .sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--light-gray);
+  }
+
+  .sponsor-card {
+    background: var(--white);
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    transition: box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .year-section:nth-child(even) .sponsor-card {
+    background: var(--off-white);
+  }
+
+  .sponsor-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    z-index: 1;
+    position: relative;
+  }
+
+  .sponsor-logo-wrap {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--off-white);
+    overflow: hidden;
+  }
+
+  .year-section:nth-child(even) .sponsor-logo-wrap {
+    background: var(--white);
+  }
+
+  .sponsor-logo-wrap img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: grayscale(15%);
+  }
+
+  .sponsor-logo-fallback {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .sponsor-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--black);
+    line-height: 1.2;
+  }
+
+  .sponsor-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .sponsor-type {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+  }
+
+  .sponsor-event {
+    font-size: 0.78rem;
+    color: var(--mid-gray);
+    line-height: 1.4;
+  }
+
+  .sponsor-detail {
+    font-size: 0.73rem;
+    color: var(--mid-gray);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .sponsor-times-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    background: rgba(200,169,110,0.15);
+    color: var(--accent-dark);
+    border-radius: 2px;
+    align-self: flex-start;
+    margin-top: auto;
+  }
+
+  .sponsor-ig {
+    font-size: 0.68rem;
+    color: rgba(107,107,107,0.6);
+    letter-spacing: 0.04em;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--black);
+    padding: 3rem 5%;
+    text-align: center;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* PRINT */
+  @media print {
+    nav, .years-nav { display: none; }
+    .year-section { break-inside: avoid; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-stats { gap: 2rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#hero">MOB</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#2026">2026</a></li>
+    <li><a href="#2025">2025</a></li>
+    <li><a href="#2024">2024</a></li>
+    <li><a href="#2023">2023</a></li>
+    <li><a href="#2022">2022</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <p class="hero-eyebrow">Sponsor Portfolio</p>
+  <h1>Marketers of <em>Baruch</em></h1>
+  <p class="hero-desc">A community of driven students at Baruch College connecting brands to a highly engaged, consumer-minded audience in the heart of New York City.</p>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-number">16</div>
+      <div class="hero-stat-label">Unique Brands</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">4+</div>
+      <div class="hero-stat-label">Years of Partnerships</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">30+</div>
+      <div class="hero-stat-label">Sponsored Activations</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-number">3</div>
+      <div class="hero-stat-label">Partnership Types</div>
+    </div>
+  </div>
+  <a class="hero-cta" href="#about">View Portfolio</a>
+</section>
+
+<!-- PILLARS -->
+<section class="pillars-section" id="about">
+  <div class="section-header">
+    <p class="section-eyebrow">Who We Are</p>
+    <h2 class="section-title">Our Three Pillars</h2>
+  </div>
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-number">01</div>
+      <h3 class="pillar-title">Community</h3>
+      <p class="pillar-desc">A tight-knit network of students who support one another and show up for every activation — ensuring your brand reaches a genuinely engaged audience.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-number">02</div>
+      <h3 class="pillar-title">Growth</h3>
+      <p class="pillar-desc">Hands-on marketing workshops, industry events, and real-world campaigns give MOB members and partner brands meaningful, measurable exposure.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-number">03</div>
+      <h3 class="pillar-title">Excellence</h3>
+      <p class="pillar-desc">We hold ourselves to a higher standard. Every partnership is executed with professionalism, creativity, and a commitment to delivering real value.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTNER -->
+<section class="why-section">
+  <div class="section-header">
+    <p class="section-eyebrow">Why Partner With MOB</p>
+    <h2 class="section-title" style="color:var(--white);">Reach Students Who <em style="color:var(--accent);font-style:italic;">Buy</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-card-number">NYC</div>
+      <div class="why-card-label">Heart of the market</div>
+    </div>
+    <div class="why-card">
+      <div class="why-card-number">3</div>
+      <div class="why-card-label">Partnership formats</div>
+    </div>
+    <div class="why-card">
+      <div class="why-card-number">IG</div>
+      <div class="why-card-label">Organic social reach</div>
+    </div>
+    <div class="why-card">
+      <div class="why-card-number">IRL</div>
+      <div class="why-card-label">In-person event sampling</div>
+    </div>
+    <div class="why-card">
+      <div class="why-card-number">10+</div>
+      <div class="why-card-label">Returning partners</div>
+    </div>
+  </div>
+</section>
+
+<!-- YEAR NAV -->
+<div class="years-nav" id="sponsors">
+  <a class="year-tab" href="#2026">2026</a>
+  <a class="year-tab" href="#2025">2025</a>
+  <a class="year-tab" href="#2024">2024</a>
+  <a class="year-tab" href="#2023">2023</a>
+  <a class="year-tab" href="#2022">2022</a>
+</div>
+
+<!-- 2026 -->
+<section class="year-section" id="2026">
+  <div class="year-heading">
+    <h2>2026</h2>
+    <span class="year-count">1 Partnership</span>
+  </div>
+
+  <div class="semester-block">
+    <div class="semester-label">Spring 2026</div>
+    <div class="sponsors-grid">
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DV_zMcPEbjt/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/softswervenyc.com" alt="Soft Swerve" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">SS</div>
+        </div>
+        <div class="sponsor-name">Soft Swerve</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Discount Partnership</span>
+          <span class="sponsor-event">Soft Swerve x MOB Discount</span>
+          <span class="sponsor-detail">15% student discount at Kips Bay location</span>
+          <span class="sponsor-ig">@softswervenyc</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2025 -->
+<section class="year-section" id="2025">
+  <div class="year-heading">
+    <h2>2025</h2>
+    <span class="year-count">12 Activations</span>
+  </div>
+
+  <div class="semester-block">
+    <div class="semester-label">Fall 2025</div>
+    <div class="sponsors-grid">
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DR45-SNgJvW/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/luckyenergyofficial.com" alt="Lucky Energy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">LE</div>
+        </div>
+        <div class="sponsor-name">Lucky Energy</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Giveaway</span>
+          <span class="sponsor-event">Lucky Energy Giveaway</span>
+          <span class="sponsor-detail">Pack of Lucky Energy awarded to 2 active members</span>
+          <span class="sponsor-ig">@luckyenergyofficial</span>
+        </div>
+        <span class="sponsor-times-badge">1x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DPb8oC5gL8V/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/goodmolecules.com" alt="Good Molecules" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">GM</div>
+        </div>
+        <div class="sponsor-name">Good Molecules</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Sweet MOB</span>
+          <span class="sponsor-detail">Skincare giveaway to 2 winners</span>
+          <span class="sponsor-ig">@goodmolecules</span>
+        </div>
+        <span class="sponsor-times-badge">1x Partner</span>
+      </a>
+
+    </div>
+  </div>
+
+  <div class="semester-block">
+    <div class="semester-label">Spring 2025</div>
+    <div class="sponsors-grid">
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DH_lDL3PLTW/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/softswervenyc.com" alt="Soft Swerve" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">SS</div>
+        </div>
+        <div class="sponsor-name">Soft Swerve</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Discount Partnership</span>
+          <span class="sponsor-event">Soft Swerve x MOB Discount</span>
+          <span class="sponsor-detail">15% student discount at Kips Bay location</span>
+          <span class="sponsor-ig">@softswervenyc</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DH6gu_0yZMd/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/phylaskin.com" alt="Phyla Skin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">PH</div>
+        </div>
+        <div class="sponsor-name">Phyla Skin</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">UX/UI Design with AIS</span>
+          <span class="sponsor-detail">Intro to UX/UI design event co-sponsored with KACE Tea</span>
+          <span class="sponsor-ig">@phylaskin</span>
+        </div>
+        <span class="sponsor-times-badge">4x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DH3OqNfuqtX/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/drinkkace.com" alt="KACE Tea" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">KT</div>
+        </div>
+        <div class="sponsor-name">KACE Tea</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">UX/UI Design with AIS + Sponsor Introduction</span>
+          <span class="sponsor-detail">Intro to KACE Tea as club sponsor; co-sponsored design event</span>
+          <span class="sponsor-ig">@drinkkace</span>
+        </div>
+        <span class="sponsor-times-badge">3x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DHopE0lSSey/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/phylaskin.com" alt="Phyla Skin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">PH</div>
+        </div>
+        <div class="sponsor-name">Phyla Skin</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Digital Marketing &amp; Social Media Challenge</span>
+          <span class="sponsor-detail">Hands-on social media marketing challenge with live brand integration</span>
+          <span class="sponsor-ig">@phylaskin</span>
+        </div>
+        <span class="sponsor-times-badge">4x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DHWtmIESEsH/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/phylaskin.com" alt="Phyla Skin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">PH</div>
+        </div>
+        <div class="sponsor-name">Phyla Skin</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Mini Games Social</span>
+          <span class="sponsor-detail">Sponsored social mini-games event</span>
+          <span class="sponsor-ig">@phylaskin</span>
+        </div>
+        <span class="sponsor-times-badge">4x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DHRg1ahSolt/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/phylaskin.com" alt="Phyla Skin" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">PH</div>
+        </div>
+        <div class="sponsor-name">Phyla Skin</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Workplace Etiquette Event</span>
+          <span class="sponsor-detail">Workforce Wisdom professional development event</span>
+          <span class="sponsor-ig">@phylaskin</span>
+        </div>
+        <span class="sponsor-times-badge">4x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/DHBzz3aPmO6/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/littlebasilnyc.com" alt="Little Basil" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">LB</div>
+        </div>
+        <div class="sponsor-name">Little Basil</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Discount Partnership</span>
+          <span class="sponsor-event">Little Basil x MOB Discount</span>
+          <span class="sponsor-detail">Exclusive student discount at Little Basil NYC</span>
+          <span class="sponsor-ig">@littlebasilnyc</span>
+        </div>
+        <span class="sponsor-times-badge">1x Partner</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2024 -->
+<section class="year-section" id="2024">
+  <div class="year-heading">
+    <h2>2024</h2>
+    <span class="year-count">9 Activations</span>
+  </div>
+
+  <div class="semester-block">
+    <div class="semester-label">Spring 2024</div>
+    <div class="sponsors-grid">
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/C6uBo8JP1ZQ/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/duckingnice.com" alt="Duckingnice" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">DN</div>
+        </div>
+        <div class="sponsor-name">Duckingnice</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Giveaway Partner</span>
+          <span class="sponsor-event">Duckingnice x MOB Giveaway</span>
+          <span class="sponsor-ig">@duckingnice</span>
+        </div>
+        <span class="sponsor-times-badge">1x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/C41V8Q9PG8u/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/guayaki.com" alt="Guayaki Yerba Mate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">GY</div>
+        </div>
+        <div class="sponsor-name">Guayaki Yerba Mate</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Sweet Eggscape Easter Social</span>
+          <span class="sponsor-detail">Product sampling at Easter social event</span>
+          <span class="sponsor-ig">@guayaki</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/C4Ybikhu2CM/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/guayaki.com" alt="Guayaki Yerba Mate" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">GY</div>
+        </div>
+        <div class="sponsor-name">Guayaki Yerba Mate</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Collect Your Lucky St. Patty's Social</span>
+          <span class="sponsor-detail">Product sampling at St. Patrick's Day social</span>
+          <span class="sponsor-ig">@guayaki</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/C4GnjJPv8h6/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/liveowyn.com" alt="OWYN" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">OW</div>
+        </div>
+        <div class="sponsor-name">OWYN</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Giveaway Partner</span>
+          <span class="sponsor-event">OWYN x MOB Giveaway</span>
+          <span class="sponsor-detail">Product giveaway to 2 winners</span>
+          <span class="sponsor-ig">@liveowyn</span>
+        </div>
+        <span class="sponsor-times-badge">1x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/C3X3Ie-O7jh/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/drinkmorematcha.com" alt="Drink More Matcha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">DM</div>
+        </div>
+        <div class="sponsor-name">Drink More Matcha</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Discount Partnership</span>
+          <span class="sponsor-event">Drink More Matcha x MOB Discount</span>
+          <span class="sponsor-detail">15% student discount at 162 E 25th St location</span>
+          <span class="sponsor-ig">@drink_more_matcha</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/C3L76KbP3w9/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/soldejaneiro.com" alt="Sol de Janeiro" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">SJ</div>
+        </div>
+        <div class="sponsor-name">Sol de Janeiro</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Valentine's Day Candle Painting</span>
+          <span class="sponsor-detail">Refreshments provided at candle painting social</span>
+          <span class="sponsor-ig">@soldejaneiro</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/C3BgwyIPfYW/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/celsiusofficial.com" alt="Celsius" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">CE</div>
+        </div>
+        <div class="sponsor-name">Celsius</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Curating Personal Brand + Valentine's Day</span>
+          <span class="sponsor-detail">Refreshments provided at both Spring 2024 events</span>
+          <span class="sponsor-ig">@celsiusofficial</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2023 -->
+<section class="year-section" id="2023">
+  <div class="year-heading">
+    <h2>2023</h2>
+    <span class="year-count">9 Activations</span>
+  </div>
+
+  <div class="semester-block">
+    <div class="semester-label">Fall 2023</div>
+    <div class="sponsors-grid">
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/CzxWwl-N_Z7/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/masa.com" alt="Masa Chips" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">MC</div>
+        </div>
+        <div class="sponsor-name">Masa Chips</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Wreath Contest + Spooktacular Showdown + Marketing Blitz</span>
+          <span class="sponsor-detail">Refreshments across 3 Fall 2023 events</span>
+          <span class="sponsor-ig">@masa_chips</span>
+        </div>
+        <span class="sponsor-times-badge">3x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/CzxWwl-N_Z7/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/drinkpoppi.com" alt="Poppi" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">PP</div>
+        </div>
+        <div class="sponsor-name">Poppi</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Wreath Contest + Spooktacular Showdown + Marketing Blitz</span>
+          <span class="sponsor-detail">Refreshments across 3 Fall 2023 events</span>
+          <span class="sponsor-ig">@drinkpoppi</span>
+        </div>
+        <span class="sponsor-times-badge">3x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/CzG-oEpOQh1/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/drinkmorematcha.com" alt="Drink More Matcha" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">DM</div>
+        </div>
+        <div class="sponsor-name">Drink More Matcha</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Discount Partnership</span>
+          <span class="sponsor-event">Drink More Matcha x MOB Discount</span>
+          <span class="sponsor-detail">15% student discount at 162 E 25th St location</span>
+          <span class="sponsor-ig">@drink_more_matcha</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/Cyo8AeRNT5D/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/misfitshealth.com" alt="Misfits Health" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">MH</div>
+        </div>
+        <div class="sponsor-name">Misfits Health</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Event Sponsor</span>
+          <span class="sponsor-event">Spooktacular Showdown + Marketing Blitz</span>
+          <span class="sponsor-detail">Refreshments at 2 Fall 2023 events</span>
+          <span class="sponsor-ig">@misfitshealth</span>
+        </div>
+        <span class="sponsor-times-badge">2x Partner</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2022 -->
+<section class="year-section" id="2022">
+  <div class="year-heading">
+    <h2>2022</h2>
+    <span class="year-count">3 Activations</span>
+  </div>
+
+  <div class="semester-block">
+    <div class="semester-label">Spring 2022</div>
+    <div class="sponsors-grid">
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/CZ8Lmm2NobA/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/shakeshack.com" alt="Shake Shack" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">SS</div>
+        </div>
+        <div class="sponsor-name">Shake Shack</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Discount Partnership</span>
+          <span class="sponsor-event">Shake Shack x MOB Discount</span>
+          <span class="sponsor-detail">10% student discount at E 23rd &amp; Madison Ave location</span>
+          <span class="sponsor-ig">@ShakeShack</span>
+        </div>
+        <span class="sponsor-times-badge">1x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/CZsWNsoFZBK/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/princeteahouse.com" alt="Prince Tea House" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">PT</div>
+        </div>
+        <div class="sponsor-name">Prince Tea House</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Discount Partnership</span>
+          <span class="sponsor-event">Prince Tea House x MOB Discount</span>
+          <span class="sponsor-detail">10% student discount at 204 E 10th St location</span>
+        </div>
+        <span class="sponsor-times-badge">1x Partner</span>
+      </a>
+
+      <a class="sponsor-card" href="https://www.instagram.com/p/CZmrqvHFfjS/" target="_blank" rel="noopener">
+        <div class="sponsor-logo-wrap">
+          <img src="https://logo.clearbit.com/smooveicecream.com" alt="Smoove Ice Cream" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="sponsor-logo-fallback" style="display:none">SI</div>
+        </div>
+        <div class="sponsor-name">Smoove Ice Cream</div>
+        <div class="sponsor-meta">
+          <span class="sponsor-type">Discount Partnership</span>
+          <span class="sponsor-event">Smoove Ice Cream x MOB Discount</span>
+          <span class="sponsor-detail">10% student discount at 279 Grand St location</span>
+          <span class="sponsor-ig">@smooveicecream</span>
+        </div>
+        <span class="sponsor-times-badge">1x Partner</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Marketers of Baruch</div>
+  <div class="footer-tagline">Community &nbsp;|&nbsp; Growth &nbsp;|&nbsp; Excellence</div>
+</footer>
+
+<script>
+  // Highlight active year tab on scroll
+  const sections = document.querySelectorAll('.year-section');
+  const tabs = document.querySelectorAll('.year-tab');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tabs.forEach(t => t.classList.remove('active'));
+        const id = entry.target.id;
+        const tab = document.querySelector(`.year-tab[href="#${id}"]`);
+        if (tab) tab.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
